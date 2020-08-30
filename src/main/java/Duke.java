@@ -3,11 +3,7 @@ import java.util.Scanner;
 public class Duke {
 
     public static void main(String[] args) {
-        String greet = " ____________________________________________________________\n"
-                + "  Hello! I'm Duke\n"
-                + "  What can I do for you?\n"
-                + "\n"
-                + " ____________________________________________________________\n";
+        String greet = showWelcomeScreen();
         System.out.println(greet);
         
         Task currentTask;
@@ -92,5 +88,14 @@ public class Duke {
         System.out.println(" ____________________________________________________________");
         System.out.println("  Bye. Hope to see you again soon!");
         System.out.println(" ____________________________________________________________");
+    }
+
+    private static String showWelcomeScreen() {
+        String greet = " ____________________________________________________________\n"
+                + "  Hello! I'm Duke\n"
+                + "  What can I do for you?\n"
+                + "\n"
+                + " ____________________________________________________________\n";
+        return greet;
     }
 }
