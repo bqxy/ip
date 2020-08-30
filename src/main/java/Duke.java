@@ -26,8 +26,7 @@ public class Duke {
                 System.out.println(" ____________________________________________________________");
                 System.out.println("  Here are the tasks in your list:");
                 for (int i = 0; i < numOfTasks; i++) {
-                    System.out.print("  " + (i + 1) + ".[" + storeTasks[i].getStatusIcon() + "] ");
-                    System.out.println(storeTasks[i].getDescription());
+                    System.out.println("  " + (i + 1) + "." + storeTasks[i]);
                 }
                 System.out.println(" ____________________________________________________________");
                 continue;
@@ -40,10 +39,47 @@ public class Duke {
                     storeTasks[taskNum - 1].setDone();
                     System.out.println(" ____________________________________________________________");
                     System.out.println("  Nice! I've marked this task as done:");
-                    System.out.print("   " + taskNum + ".[" + storeTasks[taskNum - 1].getStatusIcon() + "] ");
-                    System.out.println(storeTasks[taskNum - 1].getDescription());
+                    System.out.println("   " + taskNum + "." + storeTasks[taskNum - 1]);
                     System.out.println(" ____________________________________________________________");
                 }
+                continue;
+            }
+
+            if (line.contains("deadline")) {
+                String[] word = line.split("/by");
+                word[0] = word[0].replace("deadline ", "");
+                storeTasks[numOfTasks] = new Deadline(word[0], word[1]);
+                numOfTasks++;
+                System.out.println(" ____________________________________________________________");
+                System.out.println("  Got it. I've added this task:");
+                System.out.println("    " + storeTasks[numOfTasks - 1]);
+                System.out.println("  Now you have " + numOfTasks + " tasks in the list.");
+                System.out.println(" ____________________________________________________________");
+                continue;
+            }
+
+            if (line.contains("todo")) {
+                String[] word = line.split("todo ");
+                storeTasks[numOfTasks] = new ToDo(word[1]);
+                numOfTasks++;
+                System.out.println(" ____________________________________________________________");
+                System.out.println("  Got it. I've added this task:");
+                System.out.println("    " + storeTasks[numOfTasks - 1]);
+                System.out.println("  Now you have " + numOfTasks + " tasks in the list.");
+                System.out.println(" ____________________________________________________________");
+                continue;
+            }
+
+            if (line.contains("event")) {
+                String[] word = line.split("/at");
+                word[0] = word[0].replace("event ", "");
+                storeTasks[numOfTasks] = new Event(word[0], word[1]);
+                numOfTasks++;
+                System.out.println(" ____________________________________________________________");
+                System.out.println("  Got it. I've added this task:");
+                System.out.println("    " + storeTasks[numOfTasks - 1]);
+                System.out.println("  Now you have " + numOfTasks + " tasks in the list.");
+                System.out.println(" ____________________________________________________________");
                 continue;
             }
 
