@@ -1,3 +1,5 @@
+package duke;
+
 import java.util.Scanner;
 
 public class Duke {
@@ -61,7 +63,7 @@ public class Duke {
 
     private static void showWelcomeScreen() {
         String greet = " ____________________________________________________________\n"
-                + "  Hello! I'm Duke\n"
+                + "  Hello! I'm duke.Duke\n"
                 + "  What can I do for you?\n"
                 + "\n"
                 + " ____________________________________________________________\n";
