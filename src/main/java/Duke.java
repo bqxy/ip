@@ -34,8 +34,12 @@ public class Duke {
             }
 
             if (line.contains("todo")) {
-                todoCommand(line, numOfTasks, storeTasks);
-                numOfTasks++;
+                try {
+                    todoCommand(line, numOfTasks, storeTasks);
+                    numOfTasks++;
+                } catch (DukeException e) {
+                    System.out.println(e.getMessage());
+                }
                 continue;
             }
 
@@ -45,8 +49,11 @@ public class Duke {
                 continue;
             }
 
-            regularCommand(line, numOfTasks, storeTasks);
-            numOfTasks++;
+            try {
+                wrongCommand();
+            } catch (DukeException e) {
+                System.out.println(e.getMessage());
+            }
         }
 
         showEndScreen();
@@ -100,14 +107,22 @@ public class Duke {
         System.out.println(" ____________________________________________________________");
     }
 
-    private static void todoCommand(String line, int numOfTasks, Task[] storeTasks) {
-        String[] words = line.split("todo ");
-        storeTasks[numOfTasks] = new ToDo(words[1]);
-        System.out.println(" ____________________________________________________________");
-        System.out.println("  Got it. I've added this task:");
-        System.out.println("    " + storeTasks[numOfTasks]);
-        System.out.println("  Now you have " + (numOfTasks + 1) + " tasks in the list.");
-        System.out.println(" ____________________________________________________________");
+    private static void todoCommand(String line, int numOfTasks, Task[] storeTasks) throws DukeException {
+        try {
+            if (line.equals("todo")) {
+                throw new DukeException("The description of a todo cannot be empty.");
+            }
+
+            String[] words = line.split("todo ");
+            storeTasks[numOfTasks] = new ToDo(words[1]);
+            System.out.println(" ____________________________________________________________");
+            System.out.println("  Got it. I've added this task:");
+            System.out.println("    " + storeTasks[numOfTasks]);
+            System.out.println("  Now you have " + (numOfTasks + 1) + " tasks in the list.");
+            System.out.println(" ____________________________________________________________");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new DukeException("The description of a todo cannot be empty.");
+        }
     }
 
     private static void eventCommand(String line, int numOfTasks, Task[] storeTasks) {
@@ -121,10 +136,7 @@ public class Duke {
         System.out.println(" ____________________________________________________________");
     }
 
-    private static void regularCommand(String line, int numOfTasks, Task[] storeTasks) {
-        storeTasks[numOfTasks] = new Task(line);
-        System.out.println(" ____________________________________________________________");
-        System.out.println("  added: " + line);
-        System.out.println(" ____________________________________________________________");
+     private static void wrongCommand() throws DukeException {
+        throw new DukeException("I'm sorry, but I don't know what that means :-C");
     }
 }
