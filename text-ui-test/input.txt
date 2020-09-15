@@ -10,8 +10,8 @@ list
 todo borrow book
 event project meeting /at Mon 2-4pm
 list
+done 1
+done 2
 done 3
-done 4
-done 5
 list
 bye
