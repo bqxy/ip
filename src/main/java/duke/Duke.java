@@ -1,8 +1,12 @@
 package duke;
 
-import java.io.*;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.io.FileNotFoundException;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class Duke {
 
@@ -13,7 +17,7 @@ public class Duke {
         ArrayList<String> tasksText = new ArrayList<>();
         String line;
         Scanner in = new Scanner(System.in);
-        String filePath = "data/duke.txt";
+        String filePath = "./data/duke.txt";
 
         try {
             readFileContents(filePath, storeTasks ,tasksText);
@@ -265,6 +269,11 @@ public class Duke {
     private static void readFileContents(String filePath, ArrayList<Task> storeTasks,
                                          ArrayList<String> tasksText) throws FileNotFoundException,
             DukeException {
+        try {
+            createFile(filePath);
+        } catch (IOException e) {
+            System.out.println("IO Error");
+        }
         File f = new File(filePath); // create a File for the given file path
         File folder = new File("./data/"); // folder directory for duke.txt
         Scanner s = new Scanner(f); // create a Scanner using the File as the source
@@ -318,5 +327,17 @@ public class Duke {
                 System.out.println("IO Error");
             }
         }
+    }
+
+    private static void createFile(String filePath) throws IOException {
+        File storageFile = new File(filePath);
+        if (storageFile.exists()) {
+            return;
+        }
+        if (!storageFile.getParentFile().exists()) {
+            storageFile.getParentFile().mkdirs();
+        }
+        storageFile.createNewFile();
+        System.out.println(storageFile.getAbsolutePath());
     }
 }
