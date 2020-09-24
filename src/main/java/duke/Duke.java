@@ -34,7 +34,6 @@ public class Duke {
                 break;
             }
             if (line.equals("list")) {
-                listCommand(storeTasks);
                 continue;
             }
             if (line.contains("done")) {
@@ -149,39 +148,51 @@ public class Duke {
                 System.out.println("Folder not found");
             }
         } catch (IndexOutOfBoundsException e) {
-            throw new DukeException("You do not have any task(s)");
+            throw new DukeException("Please select the appropriate task number on the list");
         }
     }
 
     private static void deadlineCommand(String line, ArrayList<Task> storeTasks, String filePath,
                                         ArrayList<String> tasksText) throws DukeException{
-        String[] words = line.split("/by");
-        words[0] = words[0].replace("deadline ", "");
-        storeTasks.add(new Deadline(words[0], words[1]));
-        System.out.println(" ____________________________________________________________");
-        System.out.println("  Got it. I've added this task:");
-        System.out.println("    " + storeTasks.get(storeTasks.size() - 1));
-        System.out.println("  Now you have " + storeTasks.size() + " tasks in the list.");
-        System.out.println(" ____________________________________________________________");
-
-        // Structuring text to write to file
-        String text = "D" + " | " + "0" + " | " + words[0] + "|" + words[1];
-        tasksText.add(text);
         try {
-            updateFile(tasksText, filePath);
-        } catch (FileNotFoundException e) {
-            System.out.println("Folder not found");
+            String[] words = line.split("/by");
+            words[0] = words[0].replace("deadline ", "");
+            if (words[0].isBlank()) {
+                throw new DukeException("For deadline command, the format is" +
+                        " 'deadline <DETAILS> /by <DATE_AND_OR_TIME>");
+            }
+            if (!line.contains("/by")) {
+                throw new DukeException("For deadline command, the format is" +
+                        " 'deadline <DETAILS> /by <DATE_AND_OR_TIME>");
+            }
+            storeTasks.add(new Deadline(words[0], words[1]));
+            System.out.println(" ____________________________________________________________");
+            System.out.println("  Got it. I've added this task:");
+            System.out.println("    " + storeTasks.get(storeTasks.size() - 1));
+            System.out.println("  Now you have " + storeTasks.size() + " tasks in the list.");
+            System.out.println(" ____________________________________________________________");
+
+            // Structuring text to write to file
+            String text = "D" + " | " + "0" + " | " + words[0] + "|" + words[1];
+            tasksText.add(text);
+            try {
+                updateFile(tasksText, filePath);
+            } catch (FileNotFoundException e) {
+                System.out.println("Folder not found");
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new DukeException("For deadline command, the format is" +
+                    " 'deadline <DETAILS> /by <DATE_AND_OR_TIME>");
         }
     }
 
     private static void todoCommand(String line, ArrayList<Task> storeTasks, String filePath,
                                     ArrayList<String> tasksText) throws DukeException {
         try {
-            if (line.equals("todo")) {
-                throw new DukeException("The description of a todo cannot be empty.");
-            }
-
             String[] words = line.split("todo ");
+            if (words[1].isBlank()) {
+                throw new DukeException("For todo command, the format is" + " 'todo <DETAILS>");
+            }
             storeTasks.add(new ToDo(words[1]));
             //storeTasks[numOfTasks] = new ToDo(words[1]);
             System.out.println(" ____________________________________________________________");
@@ -199,28 +210,41 @@ public class Duke {
                 System.out.println("Folder not found");
             }
         } catch (ArrayIndexOutOfBoundsException e) {
-            throw new DukeException("The description of a todo cannot be empty.");
+            throw new DukeException("For todo command, the format is" + " 'todo <DETAILS>");
         }
     }
 
     private static void eventCommand(String line, ArrayList<Task> storeTasks, String filePath,
                                      ArrayList<String> tasksText) throws DukeException {
-        String[] words = line.split("/at");
-        words[0] = words[0].replace("event ", "");
-        storeTasks.add(new Event(words[0], words[1]));
-        System.out.println(" ____________________________________________________________");
-        System.out.println("  Got it. I've added this task:");
-        System.out.println("    " + storeTasks.get(storeTasks.size() - 1));
-        System.out.println("  Now you have " + storeTasks.size() + " tasks in the list.");
-        System.out.println(" ____________________________________________________________");
-
-        // Structuring text to write to file
-        String text = "E" + " | " + "0" + " | " + words[0] + "|" + words[1];
-        tasksText.add(text);
         try {
-            updateFile(tasksText, filePath);
-        } catch (FileNotFoundException e) {
-            System.out.println("Folder not found");
+            String[] words = line.split("/at");
+            words[0] = words[0].replace("event ", "");
+            if (words[0].isBlank()) {
+                throw new DukeException("For event command, the format is" +
+                        " 'event <DETAILS> /at <DATE_AND_OR_TIME>");
+            }
+            if (!line.contains("/at")) {
+                throw new DukeException("For event command, the format is" +
+                        " 'event <DETAILS> /at <DATE_AND_OR_TIME>");
+            }
+            storeTasks.add(new Event(words[0], words[1]));
+            System.out.println(" ____________________________________________________________");
+            System.out.println("  Got it. I've added this task:");
+            System.out.println("    " + storeTasks.get(storeTasks.size() - 1));
+            System.out.println("  Now you have " + storeTasks.size() + " tasks in the list.");
+            System.out.println(" ____________________________________________________________");
+
+            // Structuring text to write to file
+            String text = "E" + " | " + "0" + " | " + words[0] + "|" + words[1];
+            tasksText.add(text);
+            try {
+                updateFile(tasksText, filePath);
+            } catch (FileNotFoundException e) {
+                System.out.println("Folder not found");
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new DukeException("For event command, the format is" +
+                    " 'event <DETAILS> /at <DATE_AND_OR_TIME>");
         }
     }
 
