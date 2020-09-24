@@ -4,68 +4,169 @@
 
  ____________________________________________________________
 
-I'm sorry, but I don't know what that means :-C
-I'm sorry, but I don't know what that means :-C
- ____________________________________________________________
-  Here are the tasks in your list:
- ____________________________________________________________
-You do not have any task(s)
- ____________________________________________________________
-  Here are the tasks in your list:
- ____________________________________________________________
-You do not have any task(s)
  ____________________________________________________________
   Here are the tasks in your list:
  ____________________________________________________________
  ____________________________________________________________
   Got it. I've added this task:
-    [D][✘] return book (by: Sunday)
+    [T][✘] exercise
   Now you have 1 tasks in the list.
  ____________________________________________________________
  ____________________________________________________________
   Here are the tasks in your list:
-  1.[D][✘] return book (by: Sunday)
+  1.[T][✘] exercise
  ____________________________________________________________
  ____________________________________________________________
   Got it. I've added this task:
-    [T][✘] borrow book
+    [D][✘] sign up class (by: June 7th)
   Now you have 2 tasks in the list.
  ____________________________________________________________
  ____________________________________________________________
+  Here are the tasks in your list:
+  1.[T][✘] exercise
+  2.[D][✘] sign up class (by: June 7th)
+ ____________________________________________________________
+ ____________________________________________________________
   Got it. I've added this task:
-    [E][✘] project meeting (at: Mon 2-4pm)
+    [E][✘] conference (at: June 8th)
   Now you have 3 tasks in the list.
  ____________________________________________________________
  ____________________________________________________________
   Here are the tasks in your list:
-  1.[D][✘] return book (by: Sunday)
-  2.[T][✘] borrow book
-  3.[E][✘] project meeting (at: Mon 2-4pm)
+  1.[T][✘] exercise
+  2.[D][✘] sign up class (by: June 7th)
+  3.[E][✘] conference (at: June 8th)
  ____________________________________________________________
  ____________________________________________________________
   Nice! I've marked this task as done:
-   1.[D][✓] return book (by: Sunday)
+   1.[T][✓] exercise
+ ____________________________________________________________
+ ____________________________________________________________
+  Here are the tasks in your list:
+  1.[T][✓] exercise
+  2.[D][✘] sign up class (by: June 7th)
+  3.[E][✘] conference (at: June 8th)
  ____________________________________________________________
  ____________________________________________________________
   Nice! I've marked this task as done:
-   2.[T][✓] borrow book
+   2.[D][✓] sign up class (by: June 7th)
+ ____________________________________________________________
+ ____________________________________________________________
+  Here are the tasks in your list:
+  1.[T][✓] exercise
+  2.[D][✓] sign up class (by: June 7th)
+  3.[E][✘] conference (at: June 8th)
  ____________________________________________________________
  ____________________________________________________________
   Nice! I've marked this task as done:
-   3.[E][✓] project meeting (at: Mon 2-4pm)
+   3.[E][✓] conference (at: June 8th)
+ ____________________________________________________________
+ ____________________________________________________________
+  Here are the tasks in your list:
+  1.[T][✓] exercise
+  2.[D][✓] sign up class (by: June 7th)
+  3.[E][✓] conference (at: June 8th)
  ____________________________________________________________
  ____________________________________________________________
   Nice! I've removed this task:
-   [D][✓] return book (by: Sunday)
+   [E][✓] conference (at: June 8th)
+ ____________________________________________________________
+ ____________________________________________________________
+  Here are the tasks in your list:
+  1.[T][✓] exercise
+  2.[D][✓] sign up class (by: June 7th)
  ____________________________________________________________
  ____________________________________________________________
   Nice! I've removed this task:
-   [E][✓] project meeting (at: Mon 2-4pm)
+   [D][✓] sign up class (by: June 7th)
+ ____________________________________________________________
+ ____________________________________________________________
+  Here are the tasks in your list:
+  1.[T][✓] exercise
  ____________________________________________________________
  ____________________________________________________________
   Nice! I've removed this task:
-   [T][✓] borrow book
+   [T][✓] exercise
  ____________________________________________________________
+ ____________________________________________________________
+  Here are the tasks in your list:
+ ____________________________________________________________
+ ____________________________________________________________
+  Here are the tasks in your list:
+ ____________________________________________________________
+For todo command, the format is 'todo <DETAILS>
+ ____________________________________________________________
+  Here are the tasks in your list:
+ ____________________________________________________________
+For todo command, the format is 'todo <DETAILS>
+ ____________________________________________________________
+  Here are the tasks in your list:
+ ____________________________________________________________
+For event command, the format is 'event <DETAILS> /at <DATE_AND_OR_TIME>
+ ____________________________________________________________
+  Here are the tasks in your list:
+ ____________________________________________________________
+For event command, the format is 'event <DETAILS> /at <DATE_AND_OR_TIME>
+ ____________________________________________________________
+  Here are the tasks in your list:
+ ____________________________________________________________
+For event command, the format is 'event <DETAILS> /at <DATE_AND_OR_TIME>
+ ____________________________________________________________
+  Here are the tasks in your list:
+ ____________________________________________________________
+For event command, the format is 'event <DETAILS> /at <DATE_AND_OR_TIME>
+ ____________________________________________________________
+  Here are the tasks in your list:
+ ____________________________________________________________
+For event command, the format is 'event <DETAILS> /at <DATE_AND_OR_TIME>
+ ____________________________________________________________
+  Here are the tasks in your list:
+ ____________________________________________________________
+For deadline command, the format is 'deadline <DETAILS> /by <DATE_AND_OR_TIME>
+ ____________________________________________________________
+  Here are the tasks in your list:
+ ____________________________________________________________
+For deadline command, the format is 'deadline <DETAILS> /by <DATE_AND_OR_TIME>
+ ____________________________________________________________
+  Here are the tasks in your list:
+ ____________________________________________________________
+For deadline command, the format is 'deadline <DETAILS> /by <DATE_AND_OR_TIME>
+ ____________________________________________________________
+  Here are the tasks in your list:
+ ____________________________________________________________
+For deadline command, the format is 'deadline <DETAILS> /by <DATE_AND_OR_TIME>
+ ____________________________________________________________
+  Here are the tasks in your list:
+ ____________________________________________________________
+For deadline command, the format is 'deadline <DETAILS> /by <DATE_AND_OR_TIME>
+ ____________________________________________________________
+  Here are the tasks in your list:
+ ____________________________________________________________
+No such task on the list
+ ____________________________________________________________
+  Here are the tasks in your list:
+ ____________________________________________________________
+No such task on the list
+ ____________________________________________________________
+  Here are the tasks in your list:
+ ____________________________________________________________
+No such task on the list
+ ____________________________________________________________
+  Here are the tasks in your list:
+ ____________________________________________________________
+Please select the appropriate task number on the list
+ ____________________________________________________________
+  Here are the tasks in your list:
+ ____________________________________________________________
+Please select the appropriate task number on the list
+ ____________________________________________________________
+  Here are the tasks in your list:
+ ____________________________________________________________
+I'm sorry, but I don't know what that means :-C
+ ____________________________________________________________
+  Here are the tasks in your list:
+ ____________________________________________________________
+Please select the appropriate task number on the list
  ____________________________________________________________
   Here are the tasks in your list:
  ____________________________________________________________

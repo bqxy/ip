@@ -1,20 +1,30 @@
-read book
-return book
-list
-done 1
-list
-done 2
-list
-deadline return book /by Sunday
-list
-todo borrow book
-event project meeting /at Mon 2-4pm
-list
+todo exercise
+deadline sign up class /by June 7th
+event conference /at June 8th
 done 1
 done 2
 done 3
-delete 1
+delete 3
 delete 2
 delete 1
 list
+todo
+todo
+event
+event
+event /at 1pm
+event /by 1pm
+event presentation /by 1pm
+deadline
+deadline
+deadline /by 1pm
+deadline /at 1pm
+deadline homework /at 1pm
+delete
+delete
+delete 5
+done
+done
+blah
+done 5
 bye
