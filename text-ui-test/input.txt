@@ -4,6 +4,9 @@ event conference /at June 8th
 done 1
 done 2
 done 3
+find exercise
+find class
+find conference
 delete 3
 delete 2
 delete 1
