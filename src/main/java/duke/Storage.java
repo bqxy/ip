@@ -4,10 +4,22 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Deals with loading tasks from the file and saving tasks in the file.
+ */
 public class Storage extends Duke {
+    /**
+     * Reads file content whenever Duke starts up and updates the content in text file into both arrays
+     * that contains the tasks and tasks (in text format).
+     *
+     * @param filePath file path that contains all the tasks in text format.
+     * @param storeTasks array that stores all tasks.
+     * @param tasksText array that stores all tasks in text format.
+     * @throws FileNotFoundException if file that contains data of tasks is not found.
+     * @throws DukeException if folder not found.
+     */
     protected static void readFileContents(String filePath, ArrayList<Task> storeTasks,
-                                         ArrayList<String> tasksText) throws FileNotFoundException,
-            DukeException {
+                                         ArrayList<String> tasksText) throws FileNotFoundException, DukeException {
         try {
             createFile(filePath);
         } catch (IOException e) {
@@ -49,6 +61,13 @@ public class Storage extends Duke {
         }
     }
 
+    /**
+     * Writes task data to text file.
+     *
+     * @param filePath file path that contains all the tasks in text format.
+     * @param textToAdd string that would be added to the text file.
+     * @throws IOException if there are issues with input or output operations.
+     */
     protected static void writeToFile(String filePath, String textToAdd) throws IOException {
         FileWriter fw = new FileWriter(filePath, true);
         fw.write(textToAdd);
@@ -56,6 +75,14 @@ public class Storage extends Duke {
         fw.close();
     }
 
+    /**
+     * Updates text file whenever an operation is done on the task,
+     * for e.g. todo, event, deadline and delete.
+     *
+     * @param tasksText array that stores all tasks in text format.
+     * @param filePath file path that contains all the tasks in text format.
+     * @throws FileNotFoundException if file that contains data of tasks is not found.
+     */
     protected static void updateFile(ArrayList<String> tasksText, String filePath) throws FileNotFoundException {
         PrintWriter pw = new PrintWriter(filePath); // reset .txt file
         int count = 0;
@@ -68,6 +95,12 @@ public class Storage extends Duke {
         }
     }
 
+    /**
+     * Creates file if existing file is not available.
+     *
+     * @param filePath file path that contains all the tasks in text format.
+     * @throws IOException if there are issues with input or output operations.
+     */
     protected static void createFile(String filePath) throws IOException {
         File storageFile = new File(filePath);
         if (storageFile.exists()) {

@@ -1,9 +1,25 @@
 package duke;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+/**
+ * Represents all operations for the task list.
+ */
 public class TaskList extends Duke {
+    /**
+     * Returns true or false that will determine if the program continues to run.
+     * Executes the respective commands after input by user is parsed.
+     * If the method determines that the command is not recognised,
+     * the program will prompt the user for another input.
+     *
+     * @param command command determined by parser method (parseCommand).
+     * @param taskList array that stores all tasks.
+     * @param filePath file path that contains all the tasks in text format.
+     * @param tasksText array that stores all tasks in text format.
+     * @return true or false.
+     */
     protected static boolean executeCommand(String command, ArrayList<Task> taskList, String filePath,
                                             ArrayList<String> tasksText) {
         if (command.equals("bye")) {
@@ -58,6 +74,11 @@ public class TaskList extends Duke {
         return false;
     }
 
+    /**
+     * Prints the list which contains all the tasks.
+     *
+     * @param storeTasks array that contains all tasks.
+     */
     protected static void listCommand(ArrayList<Task> storeTasks) {
         System.out.println(" ____________________________________________________________");
         System.out.println("  Here are the tasks in your list:");
@@ -67,6 +88,18 @@ public class TaskList extends Duke {
         System.out.println(" ____________________________________________________________");
     }
 
+    /**
+     * Prints the corresponding task inputted by user that is done (finished).
+     * Also updates both array of tasks and tasks (in text format).
+     * Once the arrays are updated, the text file is updated to sync with updated task list.
+     *
+     * @param line the line input by user.
+     * @param storeTasks array that stores all tasks.
+     * @param filePath file path that contains all the tasks in text format.
+     * @param tasksText array that stores all tasks in text format.
+     * @throws DukeException if task number does not exist in list.
+     *
+     */
     protected static void doneCommand(String line, ArrayList<Task> storeTasks, String filePath,
                                     ArrayList<String> tasksText) throws DukeException {
         try {
@@ -105,6 +138,18 @@ public class TaskList extends Duke {
         }
     }
 
+    /**
+     * Prints the corresponding Deadline task inputted by user.
+     * Also updates both array of tasks and tasks (in text format).
+     * Once the arrays are updated, the text file is updated to sync with updated task list.
+     *
+     * @param line the line input by user.
+     * @param storeTasks array that stores all tasks.
+     * @param filePath file path that contains all the tasks in text format.
+     * @param tasksText array that stores all tasks in text format.
+     * @throws DukeException if deadline description is empty.
+     * @throws DukeException if '/by' is not inside the command.
+     */
     protected static void deadlineCommand(String line, ArrayList<Task> storeTasks, String filePath,
                                         ArrayList<String> tasksText) throws DukeException{
         try {
@@ -139,6 +184,17 @@ public class TaskList extends Duke {
         }
     }
 
+    /**
+     * Prints the corresponding ToDo task inputted by user.
+     * Also updates both array of tasks and tasks (in text format).
+     * Once the arrays are updated, the text file is updated to sync with updated task list.
+     *
+     * @param line the line input by user.
+     * @param storeTasks array that stores all tasks.
+     * @param filePath file path that contains all the tasks in text format.
+     * @param tasksText array that stores all tasks in text format.
+     * @throws DukeException if todo description is empty.
+     */
     protected static void todoCommand(String line, ArrayList<Task> storeTasks, String filePath,
                                     ArrayList<String> tasksText) throws DukeException {
         try {
@@ -166,6 +222,18 @@ public class TaskList extends Duke {
         }
     }
 
+    /**
+     * Prints the corresponding Event task inputted by user.
+     * Also updates both array of tasks and tasks (in text format).
+     * Once the arrays are updated, the text file is updated to sync with updated task list.
+     *
+     * @param line the line input by user.
+     * @param storeTasks array that stores all tasks.
+     * @param filePath file path that contains all the tasks in text format.
+     * @param tasksText array that stores all tasks in text format.
+     * @throws DukeException if event description is empty.
+     * @throws DukeException if '/at' is not inside the command.
+     */
     protected static void eventCommand(String line, ArrayList<Task> storeTasks, String filePath,
                                      ArrayList<String> tasksText) throws DukeException {
         try {
@@ -200,6 +268,18 @@ public class TaskList extends Duke {
         }
     }
 
+    /**
+     * Prints the corresponding deleted task inputted by user.
+     * Also updates both array of tasks and tasks (in text format).
+     * Once the arrays are updated, the text file is updated to sync with updated task list.
+     *
+     * @param line the line input by user.
+     * @param storeTasks array that stores all tasks.
+     * @param filePath file path that contains all the tasks in text format.
+     * @param tasksText array that stores all tasks in text format.
+     * @throws FileNotFoundException if delete description is empty.
+     * @throws DukeException if number of task inputted by user is out of range.
+     */
     protected static void deleteCommand(String line, ArrayList<Task> storeTasks, String filePath,
                                       ArrayList<String> tasksText) throws DukeException {
         try {

@@ -1,5 +1,8 @@
 package duke;
 
+/**
+ * Contains all commands related to Duke.
+ */
 public class Command {
     public static final String BYE = "bye";
     public static final String LIST = "list";

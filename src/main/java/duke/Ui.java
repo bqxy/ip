@@ -1,5 +1,8 @@
 package duke;
 
+/**
+ * Represents all interactions with the user.
+ */
 public class Ui extends Duke {
     static final String WELCOME_SCREEN = " ____________________________________________________________\n"
             + "  Hello! I'm Duke\n"
@@ -11,10 +14,16 @@ public class Ui extends Duke {
             + "  Bye. Hope to see you again soon!\n"
             + " ____________________________________________________________";
 
+    /**
+     * Prints welcome screen when duke starts up.
+     */
     protected static void showWelcomeScreen() {
         System.out.println(WELCOME_SCREEN);
     }
 
+    /**
+     * Prints end screen when user ends duke program.
+     */
     protected static void showEndScreen() {
         System.out.println(END_SCREEN);
     }
