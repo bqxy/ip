@@ -9,14 +9,14 @@ public class Duke {
     public static void main(String[] args) {
         Ui.showWelcomeScreen();
 
-        ArrayList<Task> taskList = new ArrayList<>();
+        ArrayList<Task> tasksList = new ArrayList<>();
         ArrayList<String> tasksText = new ArrayList<>();
         Scanner in = new Scanner(System.in);
         String filePath = "./data/duke.txt";
         boolean isExit = false;
 
         try {
-            Storage.readFileContents(filePath, taskList ,tasksText);
+            Storage.readFileContents(filePath, tasksList ,tasksText);
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
         } catch (DukeException e) {
@@ -24,10 +24,10 @@ public class Duke {
         }
 
         while (!isExit) {
-            TaskList.listCommand(taskList);
+            TaskList.listCommand(tasksList);
             String line = in.nextLine();
             String command = Parser.parseCommand(line);
-            isExit = TaskList.executeCommand(command, taskList, filePath, tasksText);
+            isExit = TaskList.executeCommand(command, tasksList, filePath, tasksText);
         }
 
         Ui.showEndScreen();

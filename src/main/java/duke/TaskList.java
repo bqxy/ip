@@ -3,7 +3,7 @@ package duke;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-public class TaskList extends Duke {
+public class TaskList {
     protected static boolean executeCommand(String command, ArrayList<Task> taskList, String filePath,
                                             ArrayList<String> tasksText) {
         if (command.equals("bye")) {
@@ -118,6 +118,14 @@ public class TaskList extends Duke {
                 throw new DukeException("For deadline command, the format is" +
                         " 'deadline <DETAILS> /by <DATE_AND_OR_TIME>");
             }
+            if (Parser.isValidDateAndTime(words[1])) {
+                words[1] = " " + Parser.getMonth(words[1]) + " " + Parser.getDay(words[1]) + " " +
+                        Parser.getYear(words[1]) + " " + Parser.getTime(words[1]);
+            }
+            else if (Parser.isValidDate(words[1])) {
+                words[1] = " " + Parser.getMonth(words[1]) + " " + Parser.getDay(words[1]) + " " +
+                        Parser.getYear(words[1]);
+            }
             storeTasks.add(new Deadline(words[0], words[1]));
             System.out.println(" ____________________________________________________________");
             System.out.println("  Got it. I've added this task:");
@@ -178,6 +186,14 @@ public class TaskList extends Duke {
             if (!line.contains("/at")) {
                 throw new DukeException("For event command, the format is" +
                         " 'event <DETAILS> /at <DATE_AND_OR_TIME>");
+            }
+            if (Parser.isValidDateAndTime(words[1])) {
+                words[1] = " " + Parser.getMonth(words[1]) + " " + Parser.getDay(words[1]) + " " +
+                        Parser.getYear(words[1]) + " " + Parser.getTime(words[1]);
+            }
+            else if (Parser.isValidDate(words[1])) {
+                words[1] = " " + Parser.getMonth(words[1]) + " " + Parser.getDay(words[1]) + " " +
+                        Parser.getYear(words[1]);
             }
             storeTasks.add(new Event(words[0], words[1]));
             System.out.println(" ____________________________________________________________");

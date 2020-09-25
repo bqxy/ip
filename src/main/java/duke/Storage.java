@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Storage extends Duke {
+public class Storage {
     protected static void readFileContents(String filePath, ArrayList<Task> storeTasks,
                                          ArrayList<String> tasksText) throws FileNotFoundException,
             DukeException {
@@ -34,6 +34,7 @@ public class Storage extends Duke {
             }
             // Read Deadline tasks into Duke
             if (words[0].equals("D")) {
+                words[3] = " " + words[3];
                 storeTasks.add(new Deadline(words[2], words[3]));
                 if (words[1].equals("1")) {
                     storeTasks.get(storeTasks.size() - 1).setDone();
@@ -41,6 +42,7 @@ public class Storage extends Duke {
             }
             // Read Event tasks into Duke
             if (words[0].equals("E")) {
+                words[3] = " " + words[3];
                 storeTasks.add(new Event(words[2], words[3]));
                 if (words[1].equals("1")) {
                     storeTasks.get(storeTasks.size() - 1).setDone();
