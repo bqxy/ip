@@ -27,4 +27,12 @@ done
 done
 blah
 done 5
+deadline homework /by 2020-1-1 1300
+deadline homework /by 2020-2-2
+event presentation /at 2020-3-3 1300
+event presentation /at 2020-4-4
+delete 1
+delete 1
+delete 1
+delete 1
 bye
