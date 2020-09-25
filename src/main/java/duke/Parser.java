@@ -8,7 +8,7 @@ public class Parser {
         }
 
         if (line.contains("done") || line.contains("deadline") || line.contains("event") ||
-                line.contains(("todo")) || line.contains(("delete"))) {
+                line.contains(("todo")) || line.contains(("delete")) || line.contains("find")) {
             return line;
         }
 
