@@ -1,6 +1,6 @@
 package duke;
 
-public class Ui extends Duke {
+public class Ui {
     static final String WELCOME_SCREEN = " ____________________________________________________________\n"
             + "  Hello! I'm Duke\n"
             + "  What can I do for you?\n"
