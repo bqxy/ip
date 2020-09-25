@@ -34,6 +34,12 @@ public class Parser {
        return ("I'm sorry, but I don't know what that means :-C");
     }
 
+    /**
+     * Returns true if string input consists of only digits.
+     *
+     * @param line string inputted by user.
+     * @return true if string consists if only digits else returns false.
+     */
     protected static boolean isOnlyDigits(String line) {
         int length = line.length();
         for (int i = 0; i < length; i++) {
@@ -47,36 +53,72 @@ public class Parser {
         return true;
     }
 
+    /**
+     * Returns true if string input is a valid year format.
+     *
+     * @param line string inputted by user.
+     * @return true if string is a valid year format.
+     */
     protected static boolean isValidYear(String line) {
         boolean isValidLength = line.length() == 4;
 
         return isValidLength && isOnlyDigits(line);
     }
 
+    /**
+     * Returns true if string input is a valid month format.
+     *
+     * @param line string inputted by user.
+     * @return true if string is a valid month format.
+     */
     protected static boolean isValidMonth(String line) {
         boolean isValidLength = line.length() == 2 || line.length() == 1;
 
         return isValidLength && isOnlyDigits(line);
     }
 
+    /**
+     * Returns true if string input is a valid day format.
+     *
+     * @param line string inputted by user.
+     * @return true if string is a valid day format.
+     */
     protected static boolean isValidDay(String line) {
         boolean isValidLength = line.length() == 2 || line.length() == 1;
 
         return isValidLength && isOnlyDigits(line);
     }
 
+    /**
+     * Returns true if string input is a valid time format.
+     *
+     * @param line string inputted by user.
+     * @return true if string is a valid time format.
+     */
     protected static boolean isValidTime(String line) {
         boolean isValidLength = line.length() == 4;
 
         return isValidLength && isOnlyDigits(line);
     }
 
+    /**
+     * Returns true if string input is a valid date format.
+     *
+     * @param line string inputted by user.
+     * @return true if string is a valid date format.
+     */
     protected static boolean isValidDate(String line) {
         String[] words = line.split(" ");
         String[] date = words[1].split("-");
         return isValidYear(date[0]) && isValidMonth(date[1]) && isValidDay(date[2]);
     }
 
+    /**
+     * Returns true if string input is a valid date and time format.
+     *
+     * @param line string inputted by user.
+     * @return true if string is a valid date and time format.
+     */
     protected static boolean isValidDateAndTime(String line) {
         String[] words = line.split(" ");
         if (words.length < 3) { // Check if time exist in command
@@ -86,12 +128,24 @@ public class Parser {
         return isValidDate(date) && isValidTime(words[2]);
     }
 
+    /**
+     * Returns number of year from string input by user.
+     *
+     * @param line string inputted by user.
+     * @return number of year.
+     */
     protected static String getYear(String line) {
         String[] words = line.split(" ");
         String[] date = words[1].split("-");
         return date[0];
     }
 
+    /**
+     * Returns number of month in alphabets from string input by user.
+     *
+     * @param line string inputted by user.
+     * @return number of month in alphabets.
+     */
     protected static String getMonth(String line) {
         String[] words = line.split(" ");
         String[] date = words[1].split("-");
@@ -126,12 +180,24 @@ public class Parser {
         return date[1];
     }
 
+    /**
+     * Returns number of day from string input by user.
+     *
+     * @param line string inputted by user.
+     * @return number of day.
+     */
     protected static String getDay(String line) {
         String[] words = line.split(" ");
         String[] date = words[1].split("-");
         return date[2];
     }
 
+    /**
+     * Returns time from string input by user.
+     *
+     * @param line string inputted by user.
+     * @return time in 24-hour format.
+     */
     protected static String getTime(String line) {
         String[] words = line.split(" ");
         return words[2];
