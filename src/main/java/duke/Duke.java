@@ -4,6 +4,9 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.io.FileNotFoundException;
 
+/**
+ * Represents main program of Duke.
+ */
 public class Duke {
 
     public static void main(String[] args) {
