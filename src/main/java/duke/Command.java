@@ -11,4 +11,5 @@ public class Command {
     public static final String DEADLINE = "deadline";
     public static final String DONE = "done";
     public static final String DELETE = "delete";
+    public static final String FIND = "FIND";
 }

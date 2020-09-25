@@ -7,7 +7,7 @@ import java.util.Scanner;
 /**
  * Deals with loading tasks from the file and saving tasks in the file.
  */
-public class Storage extends Duke {
+public class Storage {
     /**
      * Reads file content whenever Duke starts up and updates the content in text file into both arrays
      * that contains the tasks and tasks (in text format).
@@ -46,6 +46,7 @@ public class Storage extends Duke {
             }
             // Read Deadline tasks into Duke
             if (words[0].equals("D")) {
+                words[3] = " " + words[3];
                 storeTasks.add(new Deadline(words[2], words[3]));
                 if (words[1].equals("1")) {
                     storeTasks.get(storeTasks.size() - 1).setDone();
@@ -53,6 +54,7 @@ public class Storage extends Duke {
             }
             // Read Event tasks into Duke
             if (words[0].equals("E")) {
+                words[3] = " " + words[3];
                 storeTasks.add(new Event(words[2], words[3]));
                 if (words[1].equals("1")) {
                     storeTasks.get(storeTasks.size() - 1).setDone();

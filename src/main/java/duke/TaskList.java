@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * Represents all operations for the task list.
  */
-public class TaskList extends Duke {
+public class TaskList {
     /**
      * Returns true or false that will determine if the program continues to run.
      * Executes the respective commands after input by user is parsed.
@@ -64,6 +64,14 @@ public class TaskList extends Duke {
         if (command.contains("delete")) {
             try {
                 TaskList.deleteCommand(command, taskList, filePath, tasksText);
+            } catch (DukeException e) {
+                System.out.println(e.getMessage());
+            }
+            return false;
+        }
+        if (command.contains("find")) {
+            try {
+                TaskList.findCommand(command, taskList);
             } catch (DukeException e) {
                 System.out.println(e.getMessage());
             }
@@ -163,6 +171,14 @@ public class TaskList extends Duke {
                 throw new DukeException("For deadline command, the format is" +
                         " 'deadline <DETAILS> /by <DATE_AND_OR_TIME>");
             }
+            if (Parser.isValidDateAndTime(words[1])) {
+                words[1] = " " + Parser.getMonth(words[1]) + " " + Parser.getDay(words[1]) + " " +
+                        Parser.getYear(words[1]) + " " + Parser.getTime(words[1]);
+            }
+            else if (Parser.isValidDate(words[1])) {
+                words[1] = " " + Parser.getMonth(words[1]) + " " + Parser.getDay(words[1]) + " " +
+                        Parser.getYear(words[1]);
+            }
             storeTasks.add(new Deadline(words[0], words[1]));
             System.out.println(" ____________________________________________________________");
             System.out.println("  Got it. I've added this task:");
@@ -247,6 +263,14 @@ public class TaskList extends Duke {
                 throw new DukeException("For event command, the format is" +
                         " 'event <DETAILS> /at <DATE_AND_OR_TIME>");
             }
+            if (Parser.isValidDateAndTime(words[1])) {
+                words[1] = " " + Parser.getMonth(words[1]) + " " + Parser.getDay(words[1]) + " " +
+                        Parser.getYear(words[1]) + " " + Parser.getTime(words[1]);
+            }
+            else if (Parser.isValidDate(words[1])) {
+                words[1] = " " + Parser.getMonth(words[1]) + " " + Parser.getDay(words[1]) + " " +
+                        Parser.getYear(words[1]);
+            }
             storeTasks.add(new Event(words[0], words[1]));
             System.out.println(" ____________________________________________________________");
             System.out.println("  Got it. I've added this task:");
@@ -305,6 +329,26 @@ public class TaskList extends Duke {
             }
         } catch (IndexOutOfBoundsException e) {
             throw new DukeException("No such task on the list");
+        }
+    }
+
+    protected static void findCommand(String line, ArrayList<Task> storeTasks) throws DukeException {
+        try {
+            String[] words = line.split("find ");
+            if (words[1].isBlank()) {
+                throw new DukeException("For find command, the format is" + " 'find <DETAILS>");
+            }
+            System.out.println(" ____________________________________________________________");
+            System.out.println("  Here are the matching tasks in your list:");
+            for (int i = 0; i < storeTasks.size(); i++) {
+                if (storeTasks.get(i).toString().contains(words[1])) {
+                    System.out.println("  " + (i + 1) + "." + storeTasks.get(i));
+                }
+            }
+            System.out.println(" ____________________________________________________________");
+
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new DukeException("For find command, the format is" + " 'find <DETAILS>");
         }
     }
 }
