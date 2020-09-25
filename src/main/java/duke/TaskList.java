@@ -53,6 +53,14 @@ public class TaskList extends Duke {
             }
             return false;
         }
+        if (command.contains("find")) {
+            try {
+                TaskList.findCommand(command, taskList);
+            } catch (DukeException e) {
+                System.out.println(e.getMessage());
+            }
+            return false;
+        }
 
         System.out.println(command);
         return false;
@@ -225,6 +233,26 @@ public class TaskList extends Duke {
             }
         } catch (IndexOutOfBoundsException e) {
             throw new DukeException("No such task on the list");
+        }
+    }
+
+    protected static void findCommand(String line, ArrayList<Task> storeTasks) throws DukeException {
+        try {
+            String[] words = line.split("find ");
+            if (words[1].isBlank()) {
+                throw new DukeException("For find command, the format is" + " 'find <DETAILS>");
+            }
+            System.out.println(" ____________________________________________________________");
+            System.out.println("  Here are the matching tasks in your list:");
+            for (int i = 0; i < storeTasks.size(); i++) {
+                if (storeTasks.get(i).toString().contains(words[1])) {
+                    System.out.println("  " + (i + 1) + "." + storeTasks.get(i));
+                }
+            }
+            System.out.println(" ____________________________________________________________");
+
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new DukeException("For find command, the format is" + " 'find <DETAILS>");
         }
     }
 }
